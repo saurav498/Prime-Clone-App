@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: primecloud-app
+  labels:
+    app: primecloud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: primecloud-app
+  template:
+    metadata:
+      labels:
+        app: primecloud-app
+    spec:
+      containers:
+      - name: primecloud-container
+        image: 309395755719.dkr.ecr.us-east-1.amazonaws.com/amazon-prime:latest
+        ports:
+        - containerPort: 3000
+...
